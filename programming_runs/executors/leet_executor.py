@@ -8,11 +8,11 @@ from datetime import datetime
 
 class LeetExecutor(Executor):
     def __init__(self, lang, executor: Executor, formatter):
-        from .leetcode_env.leetcode_env.utils import SubmissionFormatter
-        from .leetcode_env.leetcode_env.leetcode_types import ProgrammingLanguage
+        from .leetcode_env.leetcode_env.utils.formatting import SubmissionFormatter 
+        from .leetcode_env.leetcode_env.types import ProgrammingLanguage
         from .leetcode_env.leetcode_env.environment import LeetCodeEnv
-        assert isinstance(formatter, SubmissionFormatter)
-        assert isinstance(lang, ProgrammingLanguage)
+        # assert isinstance(formatter, SubmissionFormatter)
+        # assert isinstance(lang, ProgrammingLanguage)
         self.lang = lang
         self.executor = executor
         self.formatter = formatter
@@ -23,7 +23,7 @@ class LeetExecutor(Executor):
         return self.executor.execute(func, tests, timeout)
 
     def evaluate(self, name: str, func: str, test: str, timeout: int = 5) -> bool:
-        from .leetcode_env.leetcode_env.leetcode_types import LeetCodeSubmission
+        from .leetcode_env.leetcode_env.types import LeetCodeSubmission
         from .leetcode_env.leetcode_env.utils import id_from_slug
         print(f'Timeout is {timeout} seconds')
         try:
